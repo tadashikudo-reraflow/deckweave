@@ -1,0 +1,32 @@
+{
+  "name": "deckweave",
+  "version": "0.1.0",
+  "description": "Local-first PPTX/HTML slide conversion toolkit for AI-editable decks.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "deckweave": "./dist/src/cli.js",
+    "deckweave-mcp": "./dist/src/mcp-server.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "sample": "tsx scripts/create-sample-pptx.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "adm-zip": "^0.5.17",
+    "cheerio": "^1.2.0",
+    "commander": "^15.0.0",
+    "fast-xml-parser": "^5.8.0",
+    "pptxgenjs": "^4.0.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "^0.5.7",
+    "@types/node": "^24.10.1",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}

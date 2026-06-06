@@ -1,0 +1,57 @@
+{
+  "source": "spec-verify",
+  "size": { "widthPx": 1280, "heightPx": 720 },
+  "slides": [
+    {
+      "id": "s1",
+      "size": { "widthPx": 1280, "heightPx": 720 },
+      "background": { "type": "color", "color": "#FFFFFF" },
+      "elements": [
+        {
+          "id": "t1",
+          "type": "text",
+          "x": 80,
+          "y": 60,
+          "w": 1120,
+          "h": 90,
+          "text": "編集可能なタイトル Editable Title",
+          "fontSize": 40,
+          "fontFace": "Meiryo",
+          "color": "#1976D2",
+          "bold": true
+        },
+        {
+          "id": "card",
+          "type": "shape",
+          "shape": "roundRect",
+          "radius": 8,
+          "x": 80,
+          "y": 200,
+          "w": 360,
+          "h": 300,
+          "fill": { "type": "color", "color": "#F2F7FC" }
+        },
+        {
+          "id": "dashbox",
+          "type": "shape",
+          "shape": "rect",
+          "x": 480,
+          "y": 200,
+          "w": 300,
+          "h": 300,
+          "line": { "color": "#D84315", "width": 2, "dash": "dash" }
+        },
+        {
+          "id": "solidline",
+          "type": "shape",
+          "shape": "line",
+          "x": 700,
+          "y": 200,
+          "w": 400,
+          "h": 0,
+          "line": { "color": "#111827", "width": 3 }
+        }
+      ]
+    }
+  ]
+}

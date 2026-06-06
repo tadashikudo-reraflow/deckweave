@@ -1,0 +1,6 @@
+node_modules/
+dist/
+examples/out/*
+!examples/out/ir-sample.json
+*.log
+.DS_Store
