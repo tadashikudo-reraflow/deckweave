@@ -37,6 +37,10 @@ function elementHtml(el: SlideElement): string {
     const border = el.line?.color ? `border:${el.line.width ?? 1}px solid ${el.line.color};` : "";
     return `<div class="dw-element dw-shape" ${data} data-deckweave-shape="${el.shape}" style="${baseStyle(el)}${background}${border}"></div>`;
   }
+  if (el.type === "chart") {
+    const label = `[Chart: ${el.chartType}${el.title ? " — " + el.title : ""}]`;
+    return `<div class="dw-element dw-chart" ${data} style="${baseStyle(el)}background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:14px;color:#666;">${escapeHtml(label)}</div>`;
+  }
   const fontSize = el.fontSize ? `font-size:${el.fontSize}px;` : "";
   const color = el.color ? `color:${el.color};` : "";
   const weight = el.bold ? "font-weight:700;" : "";

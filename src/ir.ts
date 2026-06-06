@@ -51,7 +51,25 @@ export type ShapeElement = BaseElement & {
   line?: { color?: string; width?: number; dash?: DashStyle };
 };
 
-export type SlideElement = TextElement | ImageElement | ShapeElement;
+export type ChartType = "bar" | "barH" | "line" | "pie" | "doughnut" | "area";
+
+export type ChartSeries = {
+  name: string;
+  labels?: string[];
+  values: number[];
+};
+
+export type ChartElement = BaseElement & {
+  type: "chart";
+  chartType: ChartType;
+  title?: string;
+  series: ChartSeries[];
+  colors?: string[];
+  showLegend?: boolean;
+  showValues?: boolean;
+};
+
+export type SlideElement = TextElement | ImageElement | ShapeElement | ChartElement;
 
 export type SlideIR = {
   id: string;

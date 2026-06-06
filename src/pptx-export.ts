@@ -1,5 +1,5 @@
 import { createRequire } from "node:module";
-import type { DeckIR, SlideElement } from "./ir.js";
+import type { ChartType, DeckIR, SlideElement } from "./ir.js";
 import { pxToIn, pxToPt } from "./units.js";
 
 const require = createRequire(import.meta.url);
@@ -26,6 +26,30 @@ function addElement(slide: any, el: SlideElement): void {
       shapeOpts.rectRadius = pxToIn(el.radius);
     }
     slide.addShape(el.shape === "line" ? "line" : el.shape, shapeOpts);
+    return;
+  }
+  if (el.type === "chart") {
+    const pptxChartType: Record<ChartType, string> = {
+      bar: "bar", barH: "bar", line: "line",
+      pie: "pie", doughnut: "doughnut", area: "area"
+    };
+    const data = el.series.map((s) => ({
+      name: s.name,
+      labels: s.labels,
+      values: s.values
+    }));
+    const opts: Record<string, unknown> = {
+      x, y, w, h,
+      showTitle: !!el.title,
+      title: el.title ?? "",
+      barDir: el.chartType === "barH" ? "bar" : "col",
+      showLegend: el.showLegend ?? true,
+      legendPos: "b",
+      showValue: el.showValues ?? false,
+      dataLabelFormatCode: "0"
+    };
+    if (el.colors?.length) opts.chartColors = el.colors.map((c) => c.replace("#", ""));
+    slide.addChart(pptxChartType[el.chartType], data, opts);
     return;
   }
   slide.addText(el.text, {

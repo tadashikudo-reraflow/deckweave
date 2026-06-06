@@ -26,11 +26,11 @@ Current implementation:
 - fixed-size HTML slides
 - DeckWeave HTML export back to `.pptx`
 - DeckIR JSON build (`build`) and PPTX → PNG render (`render`)
+- native charts: bar / barH / line / pie / doughnut / area (editable data in PowerPoint)
 - image/PDF → editable `.pptx` via vision-driven reconstruction (the importer is the calling AI; see `docs/spec-2026-06-06-import-image.md`)
 
 Not yet implemented:
 
-- charts
 - SmartArt
 - animations
 - full theme inheritance

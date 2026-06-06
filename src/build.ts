@@ -55,7 +55,24 @@ const ShapeSchema = z.object({
     .optional()
 });
 
-const ElementSchema = z.discriminatedUnion("type", [TextSchema, ImageSchema, ShapeSchema]);
+const ChartSeriesSchema = z.object({
+  name: z.string(),
+  labels: z.array(z.string()).optional(),
+  values: z.array(z.number())
+});
+
+const ChartSchema = z.object({
+  ...baseShape,
+  type: z.literal("chart"),
+  chartType: z.enum(["bar", "barH", "line", "pie", "doughnut", "area"]),
+  title: z.string().optional(),
+  series: z.array(ChartSeriesSchema).min(1),
+  colors: z.array(z.string()).optional(),
+  showLegend: z.boolean().optional(),
+  showValues: z.boolean().optional()
+});
+
+const ElementSchema = z.discriminatedUnion("type", [TextSchema, ImageSchema, ShapeSchema, ChartSchema]);
 
 const SizeSchema = z.object({ widthPx: z.number(), heightPx: z.number() });
 
