@@ -99,11 +99,15 @@ Next improvements:
 
 ## Phase 5: Public GitHub Release
 
-Before public release:
+Status: repository created at https://github.com/tadashikudo-reraflow/deckweave (MIT).
 
+Done:
+- Repository created and initial commit pushed.
+- Private decks and generated media excluded via `.gitignore`.
+- `ir-sample.json` fixture (synthetic) committed as a working example.
+
+Remaining before `v0.1.0` tag:
 - Add tests for import/export/critique.
-- Add fixture generation that uses synthetic decks only.
-- Add contribution guide.
-- Add security and privacy notes.
-- Confirm package name and repository name availability.
-- Tag `v0.1.0` only after roundtrip fixtures pass.
+- Add fixture generation script that uses synthetic decks only.
+- Add contribution guide (`CONTRIBUTING.md`).
+- Add security and privacy notes to README.
