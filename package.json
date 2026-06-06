@@ -12,7 +12,8 @@
     "build": "tsc -p tsconfig.json",
     "dev": "tsx src/cli.ts",
     "check": "tsc -p tsconfig.json --noEmit",
-    "sample": "tsx scripts/create-sample-pptx.ts"
+    "sample": "tsx scripts/create-sample-pptx.ts",
+    "test": "tsx --test tests/*.test.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
